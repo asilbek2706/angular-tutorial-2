@@ -1,12 +1,24 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.html',
-  styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('products');
+  count = signal(0);
+
+  readonlyCount = this.count.asReadonly();
+
+  increment() {
+    this.count.update((c) => c + 1);
+  }
+
+  decrement() {
+    if (this.count() > 0) this.count.update((c) => c - 1);
+  }
+
+  reset() {
+    this.count.set(0);
+  }
 }
