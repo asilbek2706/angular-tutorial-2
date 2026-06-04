@@ -1,22 +1,3 @@
-<div class="d-flex flex-column align-items-center justify-content-center h-100 text-center my-5">
-  <div class="card p-4 bg-black text-white">
-    <h4 class="text-danger">
-      Count:
-      <span class="text-light font-weight-extrabold bg-danger p-1 rounded">
-        {{ count() }}
-      </span>
-    </h4>
-    <div class="space-x-4 mt-3 mx-3">
-      <button class="btn btn-primary mx-2" (click)="increment()">Increment</button>
-      <button class="btn btn-secondary mx-2" (click)="decrement()">Decrement</button>
-      <button class="btn btn-danger" (click)="reset()">Reset</button>
-    </div>
-  </div>
+<h1>{{ totalPrice() | currency: 'USD' }}</h1>
 
-  <p class="text-muted bg-warning p-2 rounded">
-    Readonly Count:
-    <span class="text-light font-weight-extrabold bg-danger p-1 rounded">
-      {{ readonlyCount() }}
-    </span>
-  </p>
-</div>
+<button class="btn btn-primary" (click)="applyDiscount()">Apply discount</button>
