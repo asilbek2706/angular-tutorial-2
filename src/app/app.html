@@ -1,3 +1,4 @@
-<h1>{{ totalPrice() | currency: 'USD' }}</h1>
-
-<button class="btn btn-primary" (click)="applyDiscount()">Apply discount</button>
+<button (click)="increment()" class="btn btn-primary">Increment</button>
+<button (click)="reset()" class="btn btn-danger">Reset</button>
+<button (click)="decrement()" class="btn btn-secondary">Decrement</button>
+<span class="d-block py-3 px-3 fs-3">{{ count() }}</span>

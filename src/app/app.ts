@@ -1,19 +1,29 @@
-import { CurrencyPipe } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [CurrencyPipe],
+  imports: [],
   templateUrl: './app.html',
 })
 export class App {
-  price = signal(100);
+  count = signal(0);
 
-  tax = computed(()=> this.price() * 0.2);  // Computed is only readonly, it cannot be set directly
-  totalPrice = computed(() => this.price() + this.tax());
+  constructor() {
+    effect(() => {
+      console.log('Count value:', this.count());
+      localStorage.setItem('count', this.count().toString());
+    })
+  }
 
-  applyDiscount(){
-    const discount = this.price() * 0.1;
-    this.price.set(this.price() - discount);
+  increment() {
+    this.count.update((c) => c + 1);
+  }
+
+  decrement() {
+    this.count.update((c) => c - 1);
+  }
+
+  reset() {
+    this.count.set(0);
   }
 }
