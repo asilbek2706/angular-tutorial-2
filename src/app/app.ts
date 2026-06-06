@@ -1,9 +1,24 @@
-import { Component } from '@angular/core';
-import { Child } from './child/child';
+import { Component, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  imports: [Child],
+  imports: [],
 })
-export class App {}
+export class App {
+  email = signal('');
+
+  constructor() {
+    effect(() => {
+      const keyword = this.email();
+      if (keyword.length >= 3) {
+        console.log(`Searching for: ${keyword}` );
+      }
+    });
+  }
+
+  onEmailChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.email.set(input.value);
+  }
+}

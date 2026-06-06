@@ -1,2 +1,4 @@
-<app-child [nameInput]="'Asilbek Karomatov'"></app-child>
- 
+<div class="m-4 p-4 border rounded">
+  <input class="input-field" type="text" [value]="email()" (input)="onEmailChange($event)" />
+  <p>Email: {{ email() }}</p>
+</div>
