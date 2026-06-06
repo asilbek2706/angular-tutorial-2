@@ -1,29 +1,26 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { IUser, User } from './user/user';
 
 @Component({
   selector: 'app-root',
-  imports: [],
-  templateUrl: './app.html',
+  imports: [User],
+  standalone: true,
+  template: `
+    <section>
+      <app-user [name]="name" [users]="users" (deleteUserEvent)="deleteUser($event)" />
+    </section>
+  `,
 })
 export class App {
-  count = signal(0);
+  name: string = 'Asilbek Karomatov';
 
-  constructor() {
-    effect(() => {
-      console.log('Count value:', this.count());
-      localStorage.setItem('count', this.count().toString());
-    })
-  }
+  users = [
+    { name: 'Asilbek', age: 30, id: 1 },
+    { name: 'Jane', age: 28, id: 2 },
+    { name: 'Doe', age: 22, id: 3 },
+  ];
 
-  increment() {
-    this.count.update((c) => c + 1);
-  }
-
-  decrement() {
-    this.count.update((c) => c - 1);
-  }
-
-  reset() {
-    this.count.set(0);
+  deleteUser(user: IUser) {
+    this.users = this.users.filter((u) => u.id !== user.id);
   }
 }
