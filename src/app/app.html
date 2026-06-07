@@ -1,10 +1,15 @@
 <section class="container m-4 mx-auto w-full">
-    <app-article></app-article>
-    @defer (on timer(3000)) {
-      <app-comments></app-comments>
-  } @placeholder(minimum 2s) {
+  <div class="card">
+    <div class="card-header">
+      <img [ngSrc]="prewiewImage" alt="Preview Image" fill priority />
+    </div>
+  </div>
+  <app-article></app-article>
+  @defer (on timer(3000)) {
+    <app-comments></app-comments>
+  } @placeholder (minimum 2s) {
     <p class="text-black bg-gray-200">This is comment place</p>
-  } @loading(minimum 2s) {
-    <p class="text-black bg-red-200 text-center ">Loading...</p>
+  } @loading (minimum 2s) {
+    <p class="text-black bg-red-200 text-center">Loading...</p>
   }
 </section>
