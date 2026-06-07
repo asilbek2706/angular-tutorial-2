@@ -1,0 +1,7 @@
+<ul>
+  @for (item of productList(); track item.id) {
+    <li>
+        <img [src]="item.image" [alt]="item.title" width="200" class="object-cover mb-4 text-center mx-auto">
+    </li>
+  }
+</ul>

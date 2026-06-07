@@ -1,19 +1,11 @@
 import { Component } from '@angular/core';
-import { Comments } from './comments/comments';
-import { Article } from './article/article';
-import { NgOptimizedImage } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet],
   templateUrl: './app.html',
-  imports: [Comments, Article, NgOptimizedImage],
   styleUrl: './app.css',
 })
 export class App {
-  prewiewImage: string =
-    'https://assets.mohirdev.uz/testimonials/653b6d4bcd59348a62b03ed5/fe53c1e0-eb66-4b55-bcfa-b8e03bcb184c.original.webp';
-}
-
-// @defer - Bu asosiy blok. Component yuklanayotganda, bu kod blokini kechiktirish uchun ishlatiladi. Bu foydalanuvchi tajribasini yaxshilashga yordam beradi, chunki asosiy tarkib tezroq yuklanadi va foydalanuvchi interaktiv bo'lishi mumkin.
-// @placeholder - Bu kod blokini yuklashdan oldin ko'rsatiladigan o'rinbosar. Bu foydalanuvchilarga kontent yuklanayotganini ko'rsatadi va ularni kutishga undaydi.
-// @loading - Bu kod blokini yuklash jarayonida ko'rsatiladigan yuklanish indikatorini belgilaydi. Bu foydalanuvchilarga kontent yuklanayotganini ko'rsatadi va ularni kutishga undaydi.
+ }
