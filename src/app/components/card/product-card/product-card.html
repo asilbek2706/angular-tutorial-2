@@ -1,0 +1,25 @@
+<mat-card class="product-card">
+  <img class="product-image" [src]="item.image" [alt]="item.title" />
+
+  <mat-card-header>
+    <mat-card-title>
+      {{ item.title | truncate: 50 }}
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      {{ item.category }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p class="description">
+      {{ item.description | truncate: 120 }}
+    </p>
+
+    <div class="product-footer">
+      <span class="price">${{ item.price }}</span>
+
+      <button mat-flat-button color="primary" class="view-btn">View Details</button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,130 @@
+.navbar {
+  height: 72px;
+  padding: 0 40px;
+  background: rgb(72, 53, 53);
+  color: white;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-section a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-section mat-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  color: #60a5fa;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Mobile: hide desktop links and show menu button */
+.menu-button {
+  display: none;
+  color: inherit;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: rgb(72, 53, 53);
+  z-index: 999;
+  padding: 12px 20px;
+
+  transform: translateY(0);
+  transition: transform 220ms ease-in-out, opacity 220ms ease-in-out;
+}
+
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-menu a {
+  color: #d1d5db;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.nav-links a {
+  color: #d1d5db !important;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  padding: 8px 18px;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white !important;
+}
+
+.active-link {
+  background: #2563eb;
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+
+  .navbar {
+    padding: 0 12px;
+    height: 64px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+}
+
+/* Ensure links in the desktop nav wrap nicely on medium screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-links a {
+    padding: 6px 12px;
+  }
+}

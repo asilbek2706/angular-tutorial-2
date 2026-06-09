@@ -24,3 +24,65 @@
     object-fit: cover;
     border-radius: 8px 8px 0 0;
 } 
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section {
+  min-height: 60vh;
+  padding: 40px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
+}
+
+.hero-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-actions button {
+  min-width: 160px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+/* Ensure page content sits below fixed navbar */
+body {
+  padding-top: 72px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 72px;
+  }
+}

@@ -1,0 +1,33 @@
+<mat-toolbar class="navbar">
+  <div class="container">
+    <div class="logo-section">
+      <a routerLink="/products"
+        ><mat-icon>shopping_bag</mat-icon> <span class="logo">E-Shop</span></a
+      >
+    </div>
+
+    <span class="spacer"></span>
+    <button class="menu-button" mat-icon-button (click)="toggleMenu()" aria-label="Toggle menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <nav class="nav-links" [class.open]="menuOpen()">
+      <a mat-button routerLink="/products" routerLinkActive="active-link" matButton="outlined">
+        Products
+      </a>
+
+      <a mat-button routerLink="/cart" routerLinkActive="active-link">
+        <mat-icon [matBadge]="cartCount()" matBadgeColor="warn"> shopping_cart </mat-icon>
+
+        Cart
+      </a>
+    </nav>
+  </div>
+
+  <div class="mobile-menu" *ngIf="menuOpen()">
+    <nav>
+      <a routerLink="/products" routerLinkActive="active-link" (click)="toggleMenu()">Products</a>
+      <a routerLink="/cart" routerLinkActive="active-link" (click)="toggleMenu()">Cart</a>
+    </nav>
+  </div>
+</mat-toolbar>
