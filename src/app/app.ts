@@ -6,7 +6,7 @@ import { Navbar } from './components/shared/navbar/navbar';
   selector: 'app-root',
   imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styleUrls: ['./app.css'],
 })
 export class App {
  }

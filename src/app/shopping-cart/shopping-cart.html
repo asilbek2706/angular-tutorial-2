@@ -1,1 +1,38 @@
-<p>shopping-cart works!</p>
+<div class="container">
+  <mat-card>
+    <mat-card-title>Shopping Cart</mat-card-title>
+    <mat-card-subtitle>$20.00</mat-card-subtitle>
+
+    <mat-card-content>
+      <div class="quantity-controls">
+        <button mat-mini-fab color="primary">
+          <mat-icon>remove</mat-icon>
+        </button>
+
+        <span>2</span>
+
+        <button mat-mini-fab color="primary">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="warn" class="remove-button">
+        <mat-icon>delete</mat-icon>
+        Remove
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="total-card">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <mat-card-title class="text-white mb-0"> Total: $20.00 </mat-card-title>
+
+      <button mat-raised-button matButton="filled" color="warn" class="flex-shrink-0 remove-button">
+        Clear Cart
+        <mat-icon class="mat-icon">clear</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+</div>

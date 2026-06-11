@@ -1,0 +1,89 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+mat-card {
+  border-radius: 20px !important;
+  padding: 20px;
+  border: 1px solid #e5e7eb !important;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+mat-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+mat-card-title {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  color: #111827;
+}
+
+mat-card-subtitle {
+  font-size: 1.1rem !important;
+  color: #2563eb !important;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.quantity-controls span {
+  min-width: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.add-button {
+  transform: scale(0.9);
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+mat-card-actions button {
+  border-radius: 10px;
+}
+
+.total-card {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  ) !important;
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.remove-button {
+  background-color: #ef4444 !important;
+  color: white !important;
+  margin-bottom: 8px;
+}
+
+.total-card mat-card-title {
+  color: white !important;
+  font-size: 2rem !important;
+}

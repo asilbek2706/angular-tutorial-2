@@ -1,4 +1,4 @@
-<mat-card class="product-card">
+<mat-card class="product-card" (click)="addCart(item)">
   <img class="product-image" [src]="item.image" [alt]="item.title" />
 
   <mat-card-header>

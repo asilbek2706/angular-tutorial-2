@@ -1,0 +1,10 @@
+/* Global styles */
+body {
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Snackbar success style */
+.snackbar-success {
+	background-color: #4caf50;
+	color: #fff;
+}

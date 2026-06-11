@@ -15,7 +15,7 @@ export class CartService {
     return this.http.get<ICart[]>(`${this.apiUrl}/cart`);
   }
 
-  addToCart(cart: ICart): Observable<ICart> {
+  addToCart(cart: Omit<ICart, 'id'>): Observable<ICart> {
     return this.http.post<ICart>(`${this.apiUrl}/cart`, cart);
   }
 
