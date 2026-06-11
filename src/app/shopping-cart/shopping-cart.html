@@ -1,35 +1,39 @@
 <div class="container">
-  <mat-card>
-    <mat-card-title>Shopping Cart</mat-card-title>
-    <mat-card-subtitle>$20.00</mat-card-subtitle>
+  @for (item of cart(); track item.id) {
+    <mat-card>
+      <mat-card-title>{{ item.product.title }}</mat-card-title>
+      <mat-card-subtitle>${{ item.product.price | currency: 'USD' }}</mat-card-subtitle>
 
-    <mat-card-content>
-      <div class="quantity-controls">
-        <button mat-mini-fab color="primary">
-          <mat-icon>remove</mat-icon>
+      <mat-card-content>
+        <div class="quantity-controls">
+          <button mat-mini-fab color="primary" (click)="decrease(item.id, item.quantity)">
+            <mat-icon>remove</mat-icon>
+          </button>
+
+          <span>{{ item.quantity }}</span>
+
+          <button mat-mini-fab color="primary" (click)="increase(item.id, item.quantity)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="warn" class="remove-button" (click)="remove(item.id)">
+          <mat-icon>delete</mat-icon>
+          Remove
         </button>
-
-        <span>2</span>
-
-        <button mat-mini-fab color="primary">
-          <mat-icon>add</mat-icon>
-        </button>
-      </div>
-    </mat-card-content>
-
-    <mat-card-actions>
-      <button mat-raised-button color="warn" class="remove-button">
-        <mat-icon>delete</mat-icon>
-        Remove
-      </button>
-    </mat-card-actions>
-  </mat-card>
+      </mat-card-actions>
+    </mat-card>
+  }
 
   <mat-card class="total-card">
     <div class="d-flex justify-content-between align-items-center w-100">
-      <mat-card-title class="text-white mb-0"> Total: $20.00 </mat-card-title>
+      <mat-card-title class="text-white mb-0">
+        Total: {{ totalPrice() | currency: 'USD' : 'symbol'  }}
+      </mat-card-title>
 
-      <button mat-raised-button matButton="filled" color="warn" class="flex-shrink-0 remove-button">
+      <button mat-raised-button matButton="filled" color="warn" class="flex-shrink-0 remove-button" (click)="clear()">
         Clear Cart
         <mat-icon class="mat-icon">clear</mat-icon>
       </button>
