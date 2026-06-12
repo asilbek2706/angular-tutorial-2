@@ -22,15 +22,20 @@ export class ProductCard {
       product,
       quantity: 1,
     };
-    this.cartService.addToCart(cartItem).subscribe({
-      next: () => {
-        this._snackBar.open('Product added to cart', '', {
+    this.cartService.addToCart(cartItem, product.id).subscribe((isAdded) => {
+      if (isAdded) {
+        this._snackBar.open('Product added to cart', 'Close', {
           duration: 2000,
-          panelClass: ['snackbar-success'],
           horizontalPosition: 'right',
           verticalPosition: 'bottom',
         });
-      },
+      }else{
+        this._snackBar.open('Product quantity updated', 'Close', {
+          duration: 2000,
+          horizontalPosition: 'right',
+          verticalPosition: 'bottom',
+        });
+      }
     });
   }
 }
