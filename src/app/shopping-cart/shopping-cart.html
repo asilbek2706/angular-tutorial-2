@@ -27,16 +27,35 @@
     </mat-card>
   }
 
-  <mat-card class="total-card">
-    <div class="d-flex justify-content-between align-items-center w-100">
-      <mat-card-title class="text-white mb-0">
-        Total: {{ totalPrice() | currency: 'USD' : 'symbol'  }}
-      </mat-card-title>
+  @if (cart().length === 0) {
+    <mat-card class="empty-cart">
+      <mat-card-content>
+        <div class="empty-icon-container">
+          <mat-icon class="empty-icon">shopping_cart</mat-icon>
+        </div>
+        <h2 class="empty-cart-message">Your cart is empty.</h2>
+        <p class="empty-cart-description">Browse our products to add items to your cart.</p>
+        <button mat-raised-button color="primary" [routerLink]="['/products']">Shop Now</button>
+      </mat-card-content>
+    </mat-card>
+  } @else {
+    <mat-card class="total-card">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <mat-card-title class="text-white mb-0">
+          Total: {{ totalPrice() | currency: 'USD' : 'symbol' }}
+        </mat-card-title>
 
-      <button mat-raised-button matButton="filled" color="warn" class="flex-shrink-0 remove-button" (click)="clear()">
-        Clear Cart
-        <mat-icon class="mat-icon">clear</mat-icon>
-      </button>
-    </div>
-  </mat-card>
+        <button
+          mat-raised-button
+          matButton="filled"
+          color="warn"
+          class="flex-shrink-0 remove-button"
+          (click)="clear()"
+        >
+          Clear Cart
+          <mat-icon class="mat-icon">clear</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  }
 </div>

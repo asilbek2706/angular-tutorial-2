@@ -29,7 +29,7 @@ export class ProductCard {
           horizontalPosition: 'right',
           verticalPosition: 'bottom',
         });
-      }else{
+      } else {
         this._snackBar.open('Product quantity updated', 'Close', {
           duration: 2000,
           horizontalPosition: 'right',

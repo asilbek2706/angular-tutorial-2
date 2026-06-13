@@ -87,3 +87,60 @@ mat-card-actions button {
   color: white !important;
   font-size: 2rem !important;
 }
+
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+  padding: 40px 24px;
+  box-sizing: border-box;
+}
+
+.empty-cart .empty-icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: rgba(107, 114, 128, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.empty-cart .empty-icon {
+  color: #6b7280;
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.empty-cart .empty-cart-message {
+  margin: 0 0 12px 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.empty-cart .empty-cart-description {
+  max-width: 32rem;
+  margin: 0 0 32px 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+/* Micro-interactions */
+.empty-cart:hover .empty-icon-container {
+  background-color: rgba(107, 114, 128, 0.1);
+  transform: translateY(-4px);
+}
+
+.empty-cart:hover .empty-icon {
+  color: #4b5563;
+  transform: scale(1.05);
+}

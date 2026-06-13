@@ -5,10 +5,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartService } from '../services/cart.service';
 import { CurrencyPipe } from '@angular/common';
 import { ICart } from '../interfaces/cart';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
-  imports: [MatCardModule, MatIconModule, MatButtonModule, CurrencyPipe],
+  imports: [MatCardModule, MatIconModule, MatButtonModule, CurrencyPipe, RouterLink],
   templateUrl: './shopping-cart.html',
   styleUrl: './shopping-cart.css',
 })

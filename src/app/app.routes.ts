@@ -10,12 +10,13 @@ export const routes: Routes = [
   },
   {
     path: 'products',
-    component: ProductList,
+    loadComponent: () => import('./product-list/product-list').then((m) => m.ProductList),
     title: 'Products',
   },
   {
     path: 'cart',
-    component: ShoppingCart,
+    loadComponent: () => import('./shopping-cart/shopping-cart').then((m) => m.ShoppingCart),
     title: 'Shopping Cart',
   }
 ];
+ 
