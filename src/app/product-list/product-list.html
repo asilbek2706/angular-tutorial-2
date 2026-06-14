@@ -1,9 +1,41 @@
 <div class="container">
   <h1 class="mat-h1">🛍️ Product List</h1>
 
+  <div class="example-container">
+    <!-- Qidiruv inputi -->
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search product</mat-label>
+      <input
+        type="text"
+        matInput
+        [value]="search()"
+        placeholder="Type to search..."
+        (input)="search.set($any($event.target).value)"
+      />
+    </mat-form-field>
+
+    <!-- Kategoriya selecti -->
+    <mat-form-field appearance="outline">
+      <mat-label>Filter by category</mat-label>
+      <mat-select [value]="selectedCategory()" (selectionChange)="selectedCategory.set($event.value)">
+        <mat-option value="">All Categories</mat-option>
+        @for (category of categories(); track category) {
+          <mat-option [value]="category">{{ category }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- To'g'rilangan Reset tugmasi -->
+    <button mat-stroked-button (click)="resetFilters()" style="margin-left: 16px;">Reset filters</button>
+  </div>
+
+  <!-- Mahsulotlar griddi -->
   <div class="product-grid">
-    @for (item of productList(); track item.id) {
-        <app-product-card [item]="item"></app-product-card>
+    <!-- DIQQAT: Bu yerda filteredProducts() aylanadi -->
+    @for (item of filteredProducts(); track item.id) {
+      <app-product-card [item]="item"></app-product-card>
+    } @empty {
+      <p>Hech qanday mahsulot topilmadi.</p>
     }
   </div>
 </div>

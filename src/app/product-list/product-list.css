@@ -18,3 +18,7 @@
   gap: 28px;
 }
 
+.example-container mat-form-field + mat-form-field {
+  margin-left: 16px;
+}
+
